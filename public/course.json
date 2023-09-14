@@ -1,0 +1,65 @@
+[
+    {
+        "cover": "https://i.ibb.co/HdHRzyc/Rectangle-2-2.png",
+        "name": "ProducIntroduction to C Programmingt ",
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "price": 12000,
+        "credit": 1
+    },
+    {
+        "cover": "https://i.ibb.co/5BXVx3V/Rectangle-2-3.png",
+        "name": "Introduction to Algorithms",
+        "details": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "price": 15000,
+        "credit": 10
+    },
+    {
+        "cover": "https://i.ibb.co/hF43r0D/Rectangle-2-4.png",
+        "name": "ProdIntroduction to C++ for DSAuct ",
+        "details": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price": 18000,
+        "credit": 11
+    },
+    {
+        "cover": "https://i.ibb.co/gWP2L8M/Rectangle-2-5.png",
+        "name": "Basic Data Structures",
+        "details": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "price": 20000,
+        "credit": 6
+    },
+    {
+        "cover": "https://i.ibb.co/sw7zj1b/Rectangle-2-6.png",
+        "name": "Introduction to OOP Python",
+        "details": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "price": 17000,
+        "credit": 2
+    },
+    {
+        "cover": "https://i.ibb.co/q59ksPV/Rectangle-3.png",
+        "name": "Software Engineering",
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "price": 22000,
+        "credit": 8
+    },
+    {
+        "cover": "https://i.ibb.co/bvMhcYf/Rectangle-3-1.png",
+        "name": "AWS, Cloud Computing",
+        "details": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "price": 25000,
+        "credit": 6
+    },
+    {
+        "cover": "https://i.ibb.co/wJqSj5t/Rectangle-2.png",
+        "name": "Database (MySQL)",
+        "details": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price": 19000,
+        "credit": 7
+    },
+    {
+        "cover": "https://i.ibb.co/kMVp16m/Rectangle-2-1.png",
+        "name": "Problem-Solving Part",
+        "details": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "price": 30000,
+        "credit": 5
+    }
+]
