@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -15,19 +16,24 @@ const CourseList = () => {
 
     return (
         <>
-        <div className="w-[80%]">
-            <img src="https://i.ibb.co/HdHRzyc/Rectangle-2-2.png" alt="" />
-            <h1 className="my-3">ProducIntroduction to C Programmingt</h1>
-            <p ><small>Lorem ipsum dolor sit amet, consectetur <br/> adipiscing elit.</small></p>
-            <div className="flex gap-20 my-1">
-                <p>$ Price: 12000</p>
-                <p>Credit:1 hr</p>
+        <div className=" grid grid-cols-3 gap-4">
+           {
+            allCourse.map(cours =>(
+                <div key={cours.name} className="bg-slate-200 p-3 rounded-xl">
+                <img src={cours.cover} alt="" />
+                <h1 className="my-3 font-bold">{cours.name}</h1>
+                <p ><small>Lorem ipsum dolor sit amet, consectetur <br/> adipiscing elit.</small></p>
+                <div className="flex gap-20 my-1">
+                    <p>$ Price: {cours.price}</p>
+                    <p>Credit: {cours.credit} hr</p>
+                </div>
+               
+               <button className="text-center py-2 px-[122px] bg-blue-600 rounded-xl"> select </button>
+               
             </div>
-           
-           <button className="text-center py-2 px-[122px] bg-blue-600 rounded-xl"> select </button>
-           
+            ))
+           }
         </div>
-        
         </>
         
     );

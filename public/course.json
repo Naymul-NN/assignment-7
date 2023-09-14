@@ -1,7 +1,7 @@
 [
     {
         "cover": "https://i.ibb.co/HdHRzyc/Rectangle-2-2.png",
-        "name": "ProducIntroduction to C Programmingt ",
+        "name": "Introduction to C Programmingt ",
         "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "price": 12000,
         "credit": 1
@@ -15,7 +15,7 @@
     },
     {
         "cover": "https://i.ibb.co/hF43r0D/Rectangle-2-4.png",
-        "name": "ProdIntroduction to C++ for DSAuct ",
+        "name": "Introduction to C++ for DSAuct ",
         "details": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "price": 18000,
         "credit": 11
