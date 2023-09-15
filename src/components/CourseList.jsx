@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import AddCourse from "./AddCourse";
+import { FaBeer  } from 'react-icons/fa';
+
 
 const CourseList = () => {
 
@@ -10,6 +12,7 @@ const CourseList = () => {
     const [secletedCourses, setSeclectedCourses] = useState([]);
     const [remaining, setRemaining] = useState(0);
     const [totalHour, setTotalHour] = useState(0);
+    const [prices, setPrices] = useState (0);
    useEffect(()=>{
     fetch('./course.json')
     .then(res => res.json())
@@ -19,18 +22,25 @@ const CourseList = () => {
 const handleSeclectCourse = (cours) => {
     const isExist = secletedCourses.find((item) => item.name == cours.name);
     let count = cours.credit;
-
+    let cost  = cours.price;
     if(isExist){
        return alert("you already select this course")
     }else{
         secletedCourses.forEach((item) =>{
             count = count + item.credit
         } );
-        console.log(count);
+        secletedCourses.forEach((pice) =>{
+            cost =cost + pice.price
+        })
+    
         const totalRemaining = 20 - count;
+        if(count > 20 ){
+           return alert("you have add enough credit hour ")
+        }
         setTotalHour(count);
         setRemaining(totalRemaining);
-        setSeclectedCourses([...secletedCourses, cours])
+        setSeclectedCourses([...secletedCourses, cours]);
+        setPrices(cost);
     }
        
 }
@@ -43,11 +53,11 @@ const handleSeclectCourse = (cours) => {
             allCourse.map(cours =>(
                 <div key={cours.name} className="bg-slate-200 p-3 rounded-xl">
                 <img src={cours.cover} alt="" />
-                <h1 className="my-3 font-bold">{cours.name}</h1>
+                <h1 className="my-3 font-bold ">{cours.name}</h1>
                 <p ><small>Lorem ipsum dolor sit amet, consectetur <br/> adipiscing elit.</small></p>
                 <div className="flex gap-20 my-1">
                     <p>$ Price: {cours.price}</p>
-                    <p>Credit: {cours.credit} hr</p>
+                    <p className="inline-flex items-center"><FaBeer className="pr-1"  /> Credit: {cours.credit} hr</p>
                 </div>
                
                <button onClick={ () => handleSeclectCourse(cours)} className="text-center py-2 px-[122px] bg-blue-600 rounded-xl"> select </button>
@@ -59,7 +69,8 @@ const handleSeclectCourse = (cours) => {
             <div>
             <AddCourse secletedCourses={secletedCourses}
             remaining={remaining}
-            totalHour={totalHour}  
+            totalHour={totalHour} 
+            prices = {prices} 
             ></AddCourse>
             </div>
         </div>
