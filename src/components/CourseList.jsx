@@ -3,6 +3,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import AddCourse from "./AddCourse";
 import { FaBeer  } from 'react-icons/fa';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+
 
 
 const CourseList = () => {
@@ -23,8 +27,16 @@ const handleSeclectCourse = (cours) => {
     const isExist = secletedCourses.find((item) => item.name == cours.name);
     let count = cours.credit;
     let cost  = cours.price;
+    const MySwal = withReactContent(Swal)
     if(isExist){
-       return alert("you already select this course")
+       //return alert("you already select this course")
+       return  MySwal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Already selected'
+        
+      })
+
     }else{
         secletedCourses.forEach((item) =>{
             count = count + item.credit
@@ -34,8 +46,17 @@ const handleSeclectCourse = (cours) => {
         })
     
         const totalRemaining = 20 - count;
+        
+
         if(count > 20 ){
-           return alert("you have add enough credit hour ")
+           //return alert("you have add enough credit hour ")
+        return  MySwal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'You have no credit hour'
+            
+          })
+
         }
         setTotalHour(count);
         setRemaining(totalRemaining);
