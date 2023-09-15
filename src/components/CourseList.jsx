@@ -1,12 +1,13 @@
 /* eslint-disable react/jsx-key */
 import { useState } from "react";
 import { useEffect } from "react";
-
+import AddCourse from "./AddCourse";
 
 const CourseList = () => {
 
 
     const [allCourse, setAllCourse] = useState([]);
+    const [secletedCourses, setSeclectedCourses] = useState([]);
 
    useEffect(()=>{
     fetch('./course.json')
@@ -14,8 +15,13 @@ const CourseList = () => {
     .then(data => setAllCourse(data))
    },[])
 
+const handleSeclectCourse = (cours) => {
+       setSeclectedCourses([...secletedCourses, cours])
+}
+console.log(secletedCourses)
     return (
         <>
+        <div className="flex">
         <div className=" grid grid-cols-3 gap-4">
            {
             allCourse.map(cours =>(
@@ -28,11 +34,15 @@ const CourseList = () => {
                     <p>Credit: {cours.credit} hr</p>
                 </div>
                
-               <button className="text-center py-2 px-[122px] bg-blue-600 rounded-xl"> select </button>
+               <button onClick={ () => handleSeclectCourse(cours)} className="text-center py-2 px-[122px] bg-blue-600 rounded-xl"> select </button>
                
             </div>
             ))
            }
+        </div>
+            <div>
+            <AddCourse secletedCourses={secletedCourses}></AddCourse>
+            </div>
         </div>
         </>
         
