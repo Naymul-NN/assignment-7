@@ -8,7 +8,8 @@ const CourseList = () => {
 
     const [allCourse, setAllCourse] = useState([]);
     const [secletedCourses, setSeclectedCourses] = useState([]);
-
+    const [remaining, setRemaining] = useState(0);
+    const [totalHour, setTotalHour] = useState(0);
    useEffect(()=>{
     fetch('./course.json')
     .then(res => res.json())
@@ -16,9 +17,24 @@ const CourseList = () => {
    },[])
 
 const handleSeclectCourse = (cours) => {
-       setSeclectedCourses([...secletedCourses, cours])
+    const isExist = secletedCourses.find((item) => item.name == cours.name);
+    let count = cours.credit;
+
+    if(isExist){
+       return alert("you already select this course")
+    }else{
+        secletedCourses.forEach((item) =>{
+            count = count + item.credit
+        } );
+        console.log(count);
+        const totalRemaining = 20 - count;
+        setTotalHour(count);
+        setRemaining(totalRemaining);
+        setSeclectedCourses([...secletedCourses, cours])
+    }
+       
 }
-console.log(secletedCourses)
+//console.log(secletedCourses)
     return (
         <>
         <div className="flex">
@@ -41,7 +57,10 @@ console.log(secletedCourses)
            }
         </div>
             <div>
-            <AddCourse secletedCourses={secletedCourses}></AddCourse>
+            <AddCourse secletedCourses={secletedCourses}
+            remaining={remaining}
+            totalHour={totalHour}  
+            ></AddCourse>
             </div>
         </div>
         </>
